@@ -31,14 +31,33 @@ A smart Flask-based system for managing export buyers, classifying emails, and a
 
 ## 💻 Run Locally
 
+
+### 🪟 Windows
+
+1. Clone the repository:
+````markdown
 ```bash
-git clone https://github.com/YOUR_USERNAME/export-automation.git
-cd export-automation
-pip install -r requirements.txt
-python main.py
+git clone https://github.com/rashiuwu/export-automation.git
+````
+
+2. Open the project folder.
+
+3. Double-click:
+
+```text
+run_windows.bat
 ```
 
-Open `http://127.0.0.1:5000`
+The application will start automatically.
+
+4. Open in your browser:
+
+```text
+http://127.0.0.1:5000
+```
+
+
+
 
 ## 📁 Structure
 
