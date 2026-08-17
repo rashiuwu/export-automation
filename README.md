@@ -27,7 +27,7 @@ A smart Flask-based system for managing export buyers, classifying emails, and a
 
 ## 🌐 Live Demo
 
-👉 **[View Live Demo](YOUR_RENDER_URL)**
+👉 **[View Live Demo](https://export-automation-4gc7.onrender.com/)**
 
 ## 💻 Run Locally
 
