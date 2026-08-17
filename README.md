@@ -1,7 +1,4 @@
-Copy-paste this directly into `README.md`:
-
-````markdown
-# 🚀📧 EXPORT Automation
+## 🚀📧 EXPORT Automation
 
 > *AI-powered buyer lead management & email outreach automation.*
 
