@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Campaign Report</h1>
+<div class="grid">
+<div class="card"><div class="stat">{{buyers}}</div>Buyers</div>
+<div class="card"><div class="stat">{{total}}</div>Attempts</div>
+<div class="card"><div class="stat">{{success}}</div>Sent</div>
+<div class="card"><div class="stat">{{failed}}</div>Failed</div>
+</div>
+<div class="card"><p><b>Success rate:</b> {{rate}}%</p>
+<a href="/download-report">Download CSV report</a></div>
+<div class="card"><h2>Recent attempts</h2>
+<table><tr><th>Email</th><th>Status</th><th>Timestamp</th></tr>
+{% for r in rows %}<tr><td>{{r.email_address}}</td><td>{{r.status}}</td><td>{{r.timestamp}}</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

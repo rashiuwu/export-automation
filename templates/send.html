@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Send Bulk Email</h1>
+<div class="card">
+<form method="post" enctype="multipart/form-data">
+<label>Subject</label>
+<input name="subject" value="Singing Bowls Export Presentation" required>
+<label>Body</label>
+<textarea name="body" rows="9">Hello {{buyer_name}},
+
+We would like to introduce our Singing Bowls export collection.
+
+Regards,
+Export Team</textarea>
+<label>Audience</label>
+<select name="audience">
+<option value="all">All leads</option>
+<option value="business">Business leads</option>
+<option value="individual">Individual leads</option>
+</select>
+<label>Presentation attachment</label>
+<input type="file" name="attachment">
+<button class="primary">Send Bulk Email</button>
+</form>
+</div>
+<p class="muted">With no Gmail credentials, the application runs in demo mode and marks the selected leads as demo-sent.</p>
+{% endblock %}

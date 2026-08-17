@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.hero{background:#fff;border-radius:14px;padding:20px;box-shadow:0 5px 18px #00000012;margin-bottom:18px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:15px 0}
+.primary{background:#63b7b0;padding:13px 24px;border-radius:8px;font-weight:700}
+.danger{background:#df8b82}
+.small{padding:8px 12px;font-size:13px}
+.lead-table{overflow-x:auto;background:#fff;border-radius:14px;box-shadow:0 5px 18px #00000012}
+.lead-table table{min-width:1050px}
+.lead-table th{font-size:12px;color:#4b5668;text-transform:uppercase;background:#f8fafc}
+.lead-table td{font-size:14px;vertical-align:middle}
+.email{font-weight:600}
+.badge{padding:5px 9px;border-radius:20px;font-size:12px;font-weight:700}
+.yes{background:#d9f2e8;color:#20734f}.no{background:#f0f2f5;color:#657084}
+.score{font-weight:800}
+</style>
+
+<div class="hero">
+  <h1>Export Buyer Leads</h1>
+  <p class="muted">Find, review and contact potential Singing Bowls buyers.</p>
+  <div class="toolbar">
+    <a class="primary" href="/upload">Upload CSV</a>
+    <form method="post" action="/classify" style="margin:0">
+      <button class="small">Classify Emails</button>
+    </form>
+    <a class="small" href="/send" style="background:#17345f;color:#fff;text-decoration:none;border-radius:8px">Campaign Settings</a>
+  </div>
+</div>
+
+<div class="lead-table">
+<table>
+<thead>
+<tr>
+<th>Owner</th><th>Email</th><th>Phone</th><th>Country</th><th>Source</th>
+<th>Score</th><th>Contacted</th><th>Mail</th><th>Delete</th>
+</tr>
+</thead>
+<tbody>
+{% for lead in leads %}
+<tr>
+<td>{{ lead.buyer_name or lead.company_name or "—" }}</td>
+<td class="email">{{ lead.email }}</td>
+<td>{{ lead.phone or "—" }}</td>
+<td>{{ lead.country or "—" }}</td>
+<td>{{ lead.source_platform or "—" }}</td>
+<td class="score">{{ lead.score or 0 }}</td>
+<td>
+  {% if lead.contacted %}
+    <span class="badge yes">Yes</span>
+  {% else %}
+    <span class="badge no">No</span>
+  {% endif %}
+</td>
+<td>
+  {% if not lead.contacted %}
+  <form method="post" action="/send-lead/{{ lead.email }}">
+    <button class="small primary">Send</button>
+  </form>
+  {% else %}
+  <span class="muted">Sent</span>
+  {% endif %}
+</td>
+<td>
+  <form method="post" action="/delete-lead/{{ lead.email }}" onsubmit="return confirm('Delete this lead?')">
+    <button class="small danger">Delete</button>
+  </form>
+</td>
+</tr>
+{% else %}
+<tr><td colspan="9" style="text-align:center;padding:35px">No leads yet. Upload the demo CSV to begin.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

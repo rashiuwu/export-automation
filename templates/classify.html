@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>AI Email Classification</h1>
+<div class="card">
+<p>Classifies unique buyer emails into business and individual lists. Gemini is used when GEMINI_API_KEY is configured; otherwise a conservative personal-domain fallback keeps the demo runnable.</p>
+<form method="post"><button>Run Classification</button></form>
+</div>
+{% endblock %}

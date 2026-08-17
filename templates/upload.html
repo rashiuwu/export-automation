@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Upload Leads</h1>
+<div class="card"><form method="post" enctype="multipart/form-data">
+<label>CSV file</label><input type="file" name="file" accept=".csv" required>
+<button>Import CSV</button>
+</form></div>
+<p class="muted">Expected useful columns: buyer_name/name, company_name/company, email, website, country, source_platform.</p>
+{% endblock %}

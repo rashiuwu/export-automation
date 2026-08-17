@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Settings</h1>
+<div class="card">
+<p><b>Gmail:</b> {{config.email or "Not configured"}}</p>
+<p><b>Keyword:</b> {{config.search_keyword}}</p>
+<p><b>Daily send limit:</b> {{config.daily_send_limit}}</p>
+<p><b>Delay:</b> {{config.delay}} seconds</p>
+<p>Edit <code>.env</code> to change configuration.</p>
+</div>
+{% endblock %}
