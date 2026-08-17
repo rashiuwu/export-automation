@@ -57,6 +57,6 @@ data/         → CSV data
 
 **Rashi Sawardekar**
 
-* B.Sc. Information Technology *
+ B.Sc. Information Technology 
 
 ⭐ If you like this project, give it a star!
