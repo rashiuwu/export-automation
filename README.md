@@ -59,6 +59,3 @@ data/         → CSV data
 B.Sc. Information Technology
 
 ⭐ If you like this project, give it a star!
-
-```
-```
